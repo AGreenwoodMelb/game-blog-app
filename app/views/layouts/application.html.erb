@@ -17,13 +17,16 @@
     </div>
     <nav>
       <ul>
-        <li><a href="<%=root_path%>">Home</a></li>
-        <li><a href="/posts">Updates!</a></li>
-        <li><a href="/search">Search</a></li>
-        <li><a href="/">Admin_tools</a></li>
-        <li><a href="/">Log In/Out</a></li>
+        <li><%= link_to 'Home', root_path%></li>
+        <li><%= link_to 'Updates!', posts_path%></li>
+        <li><%= link_to 'Search', root_path%></li>
+        <li><%= link_to 'Admin_tools', root_path%></li>
+        <li><%= link_to 'Log In/Out', root_path%></li>
       </ul>
     </nav>
+   <p class="flash">
+    <%= flash.notice %>
+   </p>
     <%= yield %>
   </body>
 </html>

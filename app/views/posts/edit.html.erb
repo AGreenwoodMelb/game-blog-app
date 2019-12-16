@@ -1,0 +1,3 @@
+<h2>Edit Your Post</h2>
+<%= render partial: 'form' %>
+<%= link_to 'DELETE', post_path(@post) , method: :delete, :confirm => "Do you really want to delete this post?"%>

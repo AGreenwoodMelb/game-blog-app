@@ -1,2 +1,12 @@
-<%= javascript_pack_tag 'posts_index_page' %> 
+<% @posts.each do |post|%>
+    
+    <div className = 'hello'>
+    <a href="<%= post_path(post) %>">
+        <h3><%= post.title%></h3>
+        <h4>Posted: <%= post.created_at.to_date%></h4>
+        <h4>By:<%='author'%></h4>
+        </a>
+    </div>
+<% end %>
 
+<%= link_to 'New Post',new_post_path%>

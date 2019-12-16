@@ -1,13 +1,14 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PostListContainer from '../components/PostList/PostListContainer'
+// import PostListContainer from '../components/PostList/PostListContainer'
+import PostDisplayContainer from '../components/PostDisplay/PostDisplayContainer'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <div>
-      Who got da bestest site?
+      <PostDisplayContainer />
     </div>,
-    document.body.appendChild(document.createElement('div')),
+    document.body.appendChild(document.createElement('div'))
   )
 })

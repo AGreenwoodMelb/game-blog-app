@@ -4,7 +4,4 @@ Rails.application.routes.draw do
   resources :posts
 
 
-  namespace :api do
-    resources :post_manager, only: [:index]
-  end
 end

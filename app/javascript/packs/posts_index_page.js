@@ -8,6 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <div>
       <PostListContainer />
     </div>,
-    document.body.appendChild(document.createElement('div')),
+    document.querySelector('#root'),
   )
 })
