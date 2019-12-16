@@ -1,1 +1,8 @@
-<%= javascript_pack_tag 'posts_show_page' %> 
+<h2><%= @post.title %></h2>
+<h4>Posted: <span><%=@post.created_at.strftime("Posted on %d/%m/%Y %I:%M%p")%></span></h3>
+<%if true %>
+    <div className ="edit-button-container">
+        <%= link_to 'EDIT', edit_post_path(@post)%>
+    </div>
+    <% end %>
+<p><%= @post.body %></p>
