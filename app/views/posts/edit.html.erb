@@ -1,2 +1,3 @@
-<h2>Edit post</h2>
+<h2 class = "page-header">Edit post</h2>
 <%= render partial: 'form'%>
+<%= link_to 'DELETE', post_path(@post), method: :delete, :confrim => "Are you sure you want to delete this post?"%>

@@ -1,4 +1,4 @@
-<h2><%= @post.title %></h2>
+<h2 class = "page-header"><%= @post.title %></h2>
 <h4>Posted: <span><%=@post.created_at.strftime("Posted on %d/%m/%Y %I:%M%p")%></span></h3>
 <%if true %>
     <div className ="edit-button-container">

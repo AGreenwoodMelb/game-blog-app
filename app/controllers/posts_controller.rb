@@ -25,8 +25,8 @@ class PostsController < ApplicationController
     def destroy
         find_post
         @post.destroy
-        flash.notice = "Article '#{@post.title}' Destroyed!"
-        redirect_to articles_path
+        flash.notice = "Post '#{@post.title}' Destroyed!"
+        redirect_to posts_path
     end
 
     def edit

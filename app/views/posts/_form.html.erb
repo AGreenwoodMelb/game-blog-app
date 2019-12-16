@@ -1,13 +1,14 @@
-<%= form_with model: @post do |f| %>
-    <p>
+<%= stylesheet_link_tag 'test'%>
+<%= form_with model: @post, class: 'post-form' do |f| %>
+    <p class = "post-form-title">
         <%= f.label :title %>
         <%= f.text_field :title %>
     </p>
-    <p>
+    <p class = 'post-form-body'>
         <%= f.label :body %>
         <%= f.text_area :body %>
     </p>
-    <p>
+    <p class='post-form-submit'>
         <%= f.submit %>
     </p>
 <% end %>
