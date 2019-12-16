@@ -1,8 +1,12 @@
-<h2 class = "page-header"><%= @post.title %></h2>
-<h4>Posted: <span><%=@post.created_at.strftime("Posted on %d/%m/%Y %I:%M%p")%></span></h3>
+<%= stylesheet_link_tag 'post-page'%>
+<div class = 'post-header'>
+    <h2 class = "post-title"><%= @post.title %></h2>
+    <h4 class='post-creation'><span class = 'post-author'>Author </span><span><%=@post.created_at.strftime("Posted on %d/%m/%Y %I:%M%p")%></span></h3>
+</div>
 <%if true %>
-    <div className ="edit-button-container">
-        <%= link_to 'EDIT', edit_post_path(@post)%>
+    <div class ="edit-btn-container">
+        <%= link_to 'EDIT', edit_post_path(@post), class: 'edit-btn'%>
     </div>
-    <% end %>
-<p><%= @post.body %></p>
+<% end %>
+
+<p class = 'post-body'><%= @post.body %></p>

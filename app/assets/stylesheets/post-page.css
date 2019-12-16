@@ -1,0 +1,32 @@
+.post-header{
+    background-color:grey;
+    padding-top:5px;
+    border-top:2px solid black;
+    border-bottom:2px solid black;
+    margin: 0;
+}
+
+.post-title{
+    margin: 0;
+    margin-left: 15px;
+    font-size: 32px;
+}
+
+.post-creation{
+    text-align: right;
+    margin: 0;
+}
+
+.post-author{
+    font-style: italic;
+}
+
+.edit-btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+}
+
+.edit-btn{
+    display: initial;
+}

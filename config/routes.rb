@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  root 'home#home'
+
+  get '/about', to: 'home#about'
+
   resources :posts
 
-
-  namespace :api do
-    resources :post_manager, only: [:index]
-  end
 end
