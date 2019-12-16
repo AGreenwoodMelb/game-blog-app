@@ -1,0 +1,44 @@
+import React from 'react'
+import PostList from './PostList'
+import axios from 'axios'
+import { AST_Null } from 'terser'
+
+export default class PostListContainer extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            posts: [],
+            activePost:null
+        }
+    }
+
+    componentDidMount() {
+
+        fetch('/posts/getlist')
+        .then((response) => {return response.json()})
+        .then((data) => {this.setState({posts:[...data]})})
+        .catch((data) => {debugger})
+        // axios.post("/posts/getlist/posts.json", {
+
+        // })
+        //     .then((data) => {
+        //         this.setState({
+        //             posts: [...data.data]
+        //         })
+        //         console.log(this.state.posts)
+        //     })
+        //     .catch((data) => {
+        //         debugger
+        //     })
+    }
+
+    render() {
+        return (
+            <div>
+                {/* <PostList posts={this.state.posts} /> */}
+                <h1>{this.state.posts}</h1>
+            </div>
+        )
+    }
+
+}

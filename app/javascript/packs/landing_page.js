@@ -7,7 +7,10 @@ import ReactDOM from 'react-dom'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="React" />,
+    <div>
+      <h1>I like cheese</h1>
+      <p>This is where an brief description of the site and game go to hook people</p>
+    </div>,
     document.body.appendChild(document.createElement('div')),
   )
 })

@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <div class = "banner-container">
+      <div class="title-background">
+        <h1>Game Title</h1>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="<%=root_path%>">Home</a></li>
+        <li><a href="/posts">Updates!</a></li>
+        <li><a href="/search">Search</a></li>
+        <li><a href="/">Admin_tools</a></li>
+        <li><a href="/">Log In/Out</a></li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>
