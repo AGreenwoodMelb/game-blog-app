@@ -1,7 +1,3 @@
-<h2>Recent Posts</h2>
-<% if true %>
-    <%= link_to 'New Post', new_post_path%>
-<% end%>
 <% @posts.each do |post|%>
     
     <div className = 'hello'>
@@ -12,3 +8,5 @@
         </a>
     </div>
 <% end %>
+
+<%= link_to 'New Post',new_post_path%>
