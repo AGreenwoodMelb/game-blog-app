@@ -1,5 +1,10 @@
 <%= stylesheet_link_tag 'post-form'%>
 <%= form_with model: @post, class: 'post-form' do |f| %>
+<ul>
+    <% @post.errors.full_messages.each do |error|%>
+        <li><%= error %></li>
+    <% end %>
+</ul>
     <p class = "post-form-title">
         <%= f.label :title %>
         <%= f.text_field :title %>
@@ -7,6 +12,10 @@
     <p class = 'post-form-body'>
         <%= f.label :body %>
         <%= f.text_area :body %>
+    </p>
+    <p class = 'post-form-tags'>
+        <%= f.label :tags_list%> <br/>
+        <%= f.text_field :tag_list%>
     </p>
     <p class='post-form-submit'>
         <%= f.submit %>

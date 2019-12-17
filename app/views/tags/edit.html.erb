@@ -1,0 +1,8 @@
+<h2>Edit Tag</h2>
+<%= form_with model: @tag do |f|%>
+    <%= f.label 'Tag Name' %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+<%end%>
+
+<%= button_to "Delete", @tag, method: :delete,data: { confirm: "Are you sure?" }, class: 'delete-btn' %>
