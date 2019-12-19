@@ -11,7 +11,7 @@
     </p>
     <h4 class='post-creation'><span class = 'post-author'>Author </span><span><%=@post.created_at.strftime("Posted on %d/%m/%Y %I:%M%p")%></span></h3>
 </div>
-<%if true %>
+<%if current_user != nil && current_user[:is_admin?] != false %>
     <div class ="edit-btn-container">
         <%= link_to 'EDIT', edit_post_path(@post), class: 'edit-btn'%>
     </div>
@@ -19,7 +19,7 @@
 
 
 
-<p></p>
+<p><%= current_user %></p>
 
 <img src="<%= @post.uploads.first%>" alt="">
     <% @post.uploads.each do |upload|%>
@@ -28,11 +28,9 @@
     <% elsif upload.video? %>
         <video src="<%=url_for(upload)%>"></video>
     <% else %>
-        <%= link_to upload.filename , url_for(upload) %>
-         <%= upload.open do |file| %>
-         <p><%= file %></p>
+        <div>
             <babylon model = "<%= url_for(upload) %>">
-        <% end %>
+        </div>
     <% end %>
 
 <% end %>
@@ -43,5 +41,7 @@
 <div class="comments-section">
     <h3>Comments: (<%= @post.comments.size %>)</h3>
     <%= render partial: 'posts/comment', collection: @post.comments%>
-    <%= render partial: 'comments/form'%>
+    <% if current_user%>
+        <%= render partial: 'comments/form'%>
+    <% end %>
 </div>

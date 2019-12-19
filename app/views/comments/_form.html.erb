@@ -2,7 +2,7 @@
     <h3>Post a Comment</h3>
     <%= form_with model:[@post,@comment] do |f|%>
         <p>
-            <%= f.label :author_name%> <br/>
+            <%= f.label current_user[:username]<br/>
             <%= f.text_field :author_name%>
         </p>
         <p>

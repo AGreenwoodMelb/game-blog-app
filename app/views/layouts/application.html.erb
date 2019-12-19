@@ -19,8 +19,12 @@
         <li><a href="<%=root_path%>">Home</a></li>
         <li><a href="/posts">Updates</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/search">Search</a></li>
-        <li><a href="/">Log In/Out</a></li>
+        <%# <li><a href="/search">Search</a></li> %>
+        <% if current_user%>
+          <li><%= link_to 'Log Out', log_out_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Log In', log_in_path %></li>
+          <% end %>
       </ul>
     </nav>
     <p class="flash"><%=flash.notice%></p>
