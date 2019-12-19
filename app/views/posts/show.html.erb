@@ -1,5 +1,7 @@
 <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
-
+<script>
+    // setTimeout(() => window.location.reload(), 3000);
+</script>
 <div class = 'post-header'>
     <h2 class = "post-title"><%= @post.title %></h2>
     <h4>Tags: 
@@ -15,6 +17,7 @@
         <%= link_to 'EDIT', edit_post_path(@post), class: 'edit-btn'%>
     </div>
 <% end %>
+
 <% if @post.uploads.size !=0 %>
     <div class="carousel-to-be">
         <img src="<%= @post.uploads.first%>" alt="">
@@ -24,8 +27,8 @@
             <% elsif upload.video? %>
                 <video src="<%=url_for(upload)%>"></video>
             <% else %>
-                <div>
-                    <babylon model = "<%= url_for(upload) %>">
+                <div class ='model-container'>
+                    <babylon model = "<%= url_for(upload) %>" onLoad="window.location.reload()">
                 </div>
             <% end %>
         <% end %>
