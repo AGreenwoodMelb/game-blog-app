@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
     def create
         @comment = Comment.new(comment_params)
         @comment.post_id = params[:post_id]
+        @comment.author_name = current_user.username
 
         if @comment.save
             flash.notice = 'New comment added'
@@ -13,6 +14,6 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-        params.require(:comment).permit(:author_name, :body)
+        params.require(:comment).permit(:body)
     end
 end

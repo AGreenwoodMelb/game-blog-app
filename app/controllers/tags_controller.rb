@@ -1,4 +1,7 @@
 class TagsController < ApplicationController
+    skip_before_action :require_login, only: [:show, :index]
+    before_action :check_admin, except: [:show, :index]
+
     def index
         @tags = Tag.all
     end

@@ -1,6 +1,6 @@
 
 <h2 class= "page-header">All Updates:</h2>
-<% if true %>
+<% if current_user != nil && current_user[:admin_user] %>
     <div class = 'edit-btn-container'>
         <%= link_to 'New Post', new_post_path, class:'edit-btn'%> <br />
     </div>

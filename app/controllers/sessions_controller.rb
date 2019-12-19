@@ -6,7 +6,7 @@ class SessionsController <  ApplicationController
     end
 
     def create
-        if login(params[:email], params[:password])
+        if login(params[:email], params[:password],params[:remember_me])
             flash[:success] = 'Welcome back!'
             redirect_to root_path
         else
@@ -18,7 +18,7 @@ class SessionsController <  ApplicationController
     def destroy
         logout
         flash[:success] = 'Goodbye!'
-        redirect_to login_path
+        redirect_to log_in_path
     end
 
 end

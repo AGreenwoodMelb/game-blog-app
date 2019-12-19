@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_19_054111) do
+ActiveRecord::Schema.define(version: 2019_12_19_083803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2019_12_19_054111) do
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -82,10 +83,13 @@ ActiveRecord::Schema.define(version: 2019_12_19_054111) do
     t.string "crypted_password"
     t.string "salt"
     t.string "username"
-    t.boolean "is_admin?", default: false
+    t.boolean "admin_user", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

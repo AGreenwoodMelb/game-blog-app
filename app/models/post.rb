@@ -3,6 +3,8 @@ class Post < ApplicationRecord
     has_many :taggings, :dependent => :delete_all
     has_many :tags, through: :taggings
 
+    belongs_to :user
+
     has_many_attached :uploads
     
     has_rich_text :body

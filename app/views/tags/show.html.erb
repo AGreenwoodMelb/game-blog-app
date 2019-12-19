@@ -1,5 +1,7 @@
 <h2>Posts Tagged with '<%= @tag.name.capitalize%>' </h2>
-<%= link_to 'Edit Tag', edit_tag_path(@tag)%>
+<% if current_user != nil && current_user[:admin_user] %>
+    <%= link_to 'Edit Tag', edit_tag_path(@tag)%>
+<% end %>
 <ul>
     <% @tag.posts.each do |post| %>
         <li><%= link_to post.title, post_path(post)%></li>

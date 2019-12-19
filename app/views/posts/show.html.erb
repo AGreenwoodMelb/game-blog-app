@@ -9,17 +9,14 @@
             <%= link_to tag.name, tag_path(tag)%>
         <% end %>
     </p>
-    <h4 class='post-creation'><span class = 'post-author'>Author </span><span><%=@post.created_at.strftime("Posted on %d/%m/%Y %I:%M%p")%></span></h3>
+    <h4 class='post-creation'><span class = 'post-author'><%=@post.user.username%> </span><span><%=@post.created_at.strftime("Posted on %d/%m/%Y %I:%M%p")%></span></h3>
 </div>
-<%if current_user != nil && current_user[:is_admin?] != false %>
+
+<%if current_user != nil && current_user[:admin_user] != false %>
     <div class ="edit-btn-container">
         <%= link_to 'EDIT', edit_post_path(@post), class: 'edit-btn'%>
     </div>
 <% end %>
-
-
-
-<p><%= current_user %></p>
 
 <img src="<%= @post.uploads.first%>" alt="">
     <% @post.uploads.each do |upload|%>
@@ -32,9 +29,7 @@
             <babylon model = "<%= url_for(upload) %>">
         </div>
     <% end %>
-
 <% end %>
-
 
 <p class = 'post-body'><%= @post.body %></p>
 

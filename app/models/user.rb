@@ -7,10 +7,4 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
 
 
-
-  def is_admin?
-    self.is_admin?
-  end
-
-
 end

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
     skip_before_action :require_login, only: [:index, :show]
+    before_action :check_admin, only: [:edit, :new]
     
     def index
         @posts = Post.all
@@ -18,6 +19,7 @@ class PostsController < ApplicationController
 
     def create
         @post  = Post.new(post_params)
+        @post.user_id = current_user[:id]
         if  @post.save
             flash.notice = "Post '#{@post.title}' Created!"
             redirect_to post_path(@post)
@@ -58,5 +60,6 @@ class PostsController < ApplicationController
     def post_params
         params.require(:post).permit(:title, :body, :tag_list, uploads:[])
     end
+
 
 end
