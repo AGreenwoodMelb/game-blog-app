@@ -181,6 +181,18 @@ footer {
     justify-content: flex-end;
 }
 
+.edit-btn{
+    font-weight: bold;
+    padding:10px;
+    background-color: lightblue;
+    border:2px solid lightskyblue;
+    border-radius: 20px;
+}
+
+.edit-btn:hover{
+    background-color: skyblue;
+}
+
 .card {
     margin: 80px 5px;
 }
@@ -248,7 +260,7 @@ footer {
 }
 
 .form{
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -297,3 +309,14 @@ trix-editor{
     border-radius: 23px;
     
 }
+
+.sign-up-container{
+    text-align: center;
+}
+
+.sign-up-btn{
+    font-size:50px;
+    font-family: 'Amatic SC', serif;
+    font-weight:700;
+}
+
