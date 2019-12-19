@@ -1,14 +1,12 @@
-<%= stylesheet_link_tag 'post-page'%>
-
 <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
 
 <div class = 'post-header'>
     <h2 class = "post-title"><%= @post.title %></h2>
-    <p>Tags: 
+    <h4>Tags: 
         <% @post.tags.each do |tag|%>
             <%= link_to tag.name, tag_path(tag)%>
         <% end %>
-    </p>
+    </h4>
     <h4 class='post-creation'><span class = 'post-author'><%=@post.user.username%></span> <span><%=@post.created_at.strftime("Posted on %d/%m/%Y %I:%M%p")%></span></h3>
 </div>
 
@@ -17,23 +15,27 @@
         <%= link_to 'EDIT', edit_post_path(@post), class: 'edit-btn'%>
     </div>
 <% end %>
-
-<img src="<%= @post.uploads.first%>" alt="">
-    <% @post.uploads.each do |upload|%>
-    <%if upload.image? %>
-        <img src="<%= url_for(upload)%>" alt="" srcset="" height='300'> 
-    <% elsif upload.video? %>
-        <video src="<%=url_for(upload)%>"></video>
-    <% else %>
-        <div>
-            <babylon model = "<%= url_for(upload) %>">
-        </div>
-    <% end %>
+<% if @post.uploads.size !=0 %>
+    <div class="carousel-to-be">
+        <img src="<%= @post.uploads.first%>" alt="">
+        <% @post.uploads.each do |upload|%>
+            <%if upload.image? %>
+                <img src="<%= url_for(upload)%>" alt="" srcset="" height='300'> 
+            <% elsif upload.video? %>
+                <video src="<%=url_for(upload)%>"></video>
+            <% else %>
+                <div>
+                    <babylon model = "<%= url_for(upload) %>">
+                </div>
+            <% end %>
+        <% end %>
+    </div>
 <% end %>
 
-<p class = 'post-body'><%= @post.body %></p>
 
-<div class="comments-section">
+<%= @post.body %>
+
+<div class="comments-container">
     <h3>Comments: (<%= @post.comments.size %>)</h3>
     <%= render partial: 'posts/comment', collection: @post.comments%>
     <% if current_user%>

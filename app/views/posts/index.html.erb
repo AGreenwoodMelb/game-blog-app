@@ -2,11 +2,13 @@
 <h2 class= "page-header">All Updates:</h2>
 <% if current_user != nil && current_user[:admin_user] %>
     <div class = 'edit-btn-container'>
-        <%= link_to 'New Post', new_post_path, class:'edit-btn'%> <br />
+        <%= link_to 'New Post', new_post_path, class:'edit-btn'%> 
     </div>
 <%end%>
 <div class = 'post-list-container'>
     <% @posts.each do |post|%>
-        <%= link_to post.title, post_path(post)%><br/>
+    <div class="post-item">
+        <%= link_to post.title, post_path(post), class: 'post-link'%>
+    </div>
     <% end %>
 </div>

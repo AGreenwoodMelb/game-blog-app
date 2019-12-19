@@ -4,10 +4,10 @@
         
         <p>
             <%= f.label 'Your Comment:' %> <br/>
-            <%= f.text_area :body%>
+            <%= f.text_area :body, class: 'comment-input'%>
         </p>
-        <p>
-            <%= f.submit %>
+        <p class='comment-submit-container'>
+            <%= f.submit 'Post' %>
         </p>
     <% end %>
 </div>

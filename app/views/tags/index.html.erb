@@ -1,6 +1,8 @@
 <h2>All Post Tags</h2>
-<div class="tags-container">
+<div class="post-list-container">
     <% @tags.each do |tag|%>
-        <%= link_to tag.name, tag_path(tag)%>
+        <div class="post-item">
+            <%= link_to tag.name, tag_path(tag), class: 'post-link'%>
+        </div>
     <% end %>
 </div>
