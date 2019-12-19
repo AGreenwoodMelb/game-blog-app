@@ -11,11 +11,15 @@
     </p>
     <p class = 'post-form-body'>
         <%= f.label :body %>
-        <%= f.text_area :body %>
+        <%= f.rich_text_area :body %>
     </p>
     <p class = 'post-form-tags'>
         <%= f.label :tags_list%> <br/>
         <%= f.text_field :tag_list%>
+    </p>
+    <p class="post-form-files">
+        <%= f.label 'Files' %>
+        <%= f.file_field :uploads, multiple: true%>
     </p>
     <p class='post-form-submit'>
         <%= f.submit %>

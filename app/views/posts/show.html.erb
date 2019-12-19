@@ -1,4 +1,7 @@
 <%= stylesheet_link_tag 'post-page'%>
+
+<script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
+
 <div class = 'post-header'>
     <h2 class = "post-title"><%= @post.title %></h2>
     <p>Tags: 
@@ -13,6 +16,25 @@
         <%= link_to 'EDIT', edit_post_path(@post), class: 'edit-btn'%>
     </div>
 <% end %>
+
+
+
+<img src="<%= @post.uploads.first%>" alt="">
+    <% @post.uploads.each do |upload|%>
+    <%if upload.image? %>
+        <img src="<%= url_for(upload)%>" alt="" srcset="" height='300'> 
+    <% elsif upload.video? %>
+        <video src="<%=url_for(upload)%>"></video>
+    <% else %>
+        <%= link_to upload.filename , url_for(upload) %>
+         <%= upload.open do |file| %>
+         <p><%= file %></p>
+            <babylon model = "<%= file.path %>">
+        <% end %>
+    <% end %>
+
+<% end %>
+
 
 <p class = 'post-body'><%= @post.body %></p>
 
