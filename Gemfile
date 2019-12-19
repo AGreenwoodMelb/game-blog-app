@@ -55,4 +55,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "google-cloud-storage", "~> 1.25", require: false
 gem 'json'
 
-gem 'rack-cors', :require => 'rack/cors'
+gem 'rack-cors'

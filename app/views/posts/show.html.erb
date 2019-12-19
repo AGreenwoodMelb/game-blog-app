@@ -19,6 +19,8 @@
 
 
 
+<p></p>
+
 <img src="<%= @post.uploads.first%>" alt="">
     <% @post.uploads.each do |upload|%>
     <%if upload.image? %>
@@ -29,7 +31,7 @@
         <%= link_to upload.filename , url_for(upload) %>
          <%= upload.open do |file| %>
          <p><%= file %></p>
-            <babylon model = "<%= file.path %>">
+            <babylon model = "<%= url_for(upload) %>">
         <% end %>
     <% end %>
 
