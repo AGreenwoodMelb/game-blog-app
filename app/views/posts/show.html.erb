@@ -9,7 +9,7 @@
             <%= link_to tag.name, tag_path(tag)%>
         <% end %>
     </p>
-    <h4 class='post-creation'><span class = 'post-author'><%=@post.user.username%> </span><span><%=@post.created_at.strftime("Posted on %d/%m/%Y %I:%M%p")%></span></h3>
+    <h4 class='post-creation'><span class = 'post-author'><%=@post.user.username%></span> <span><%=@post.created_at.strftime("Posted on %d/%m/%Y %I:%M%p")%></span></h3>
 </div>
 
 <%if current_user != nil && current_user[:admin_user] != false %>
