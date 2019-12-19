@@ -20,7 +20,7 @@
     height: 300px;
 
     background-color: lightblue;
-    background-image: url('https://storage.cloud.google.com/posts-media-assest/banner-image.jpg');
+    background-image: url('https://storage.googleapis.com/posts-media-assest/banner-image.jpg');
     background-position: center;
     background-repeat: no-repeat;
 
